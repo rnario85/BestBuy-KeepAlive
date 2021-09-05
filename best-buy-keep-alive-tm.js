@@ -37,7 +37,7 @@
 
 //____ REQUIRED FLAGS ____________________________________________________
 
-const ITEM_KEYWORD= "AMD"; // NO SPACES IN KEYWORD - ONLY ONE WORD
+const ITEM_KEYWORD= "5600"; // NO SPACES IN KEYWORD - ONLY ONE WORD
 const CREDITCARD_CVV = "***"; // BOT will run without changing this value.
 const TESTMODE = "Yes"; // TESTMODE = "No" will buy the card
 const SMS_DIGITS = "****"; // Enter last 4 digits of phone # for SMS verification
