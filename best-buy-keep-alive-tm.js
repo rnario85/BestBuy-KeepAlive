@@ -600,7 +600,7 @@ if (pagetitle.includes(ITEM_KEYWORD)) {
                         {
                             // Adding timeout to prevent stalling when In Stock item is first loaded
                             setTimeout(function() {
-                            // Wow we will use event handlers to check for clicks. We have create a function on top defining instockEventhandler.
+                            // Now we will use event handlers to check for clicks. We have create a function on top defining instockEventhandler.
                             // It is said this this method reduces memory leaks
                             console.log('ATC button is yellow ! Pressing it ! ')
                             InStockButton[0].onclick = instockEventHandler;
