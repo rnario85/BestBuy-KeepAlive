@@ -10,31 +10,6 @@
 
 // Version Changelog
 // 1.0 - Initial release
-// 2.0 - 'Please Wait...' items can now be CARTED and CHECKEDOUT
-// 2.5 - 'Fixed Memory Leak' no more refresh ! We will recycle tabs.
-// 3.0 - Added Support for 'Nerd Speak' Extension
-// - MAJOR CHANGE: BOT works for CHROME Now
-// - Bot will now extract queue time from NS extension
-// - QUEUE_TIME_CUTOFF will keep requesting better queue times until target value is reached
-// - NEW_QUEUE_TIME_DELAY is delay in seconds between requesting new queue times.
-// - Status Bar is now 75% of screen.  Little taller so last line is visible when page is loading.
-// - Status Bar now shows ITEM_KEYWORD
-// - We will now play a music when item is carted.
-// - Since BB asks for verifying account sometimes. Alert will help so that you dont miss checkout.
-// - MAX_RETRIES will now control when your page gets reloaded when you are stuck on please wait screen. In this case it will perform normal reload.
-// 3.1 Best Buy disabled 5800-5600x tests
-// - Best Buy has disabled 'Please Wait' testing for 5600-5800x, they also updated their button classes for them.
-// - Added Extra layer of code which will handle for new button classes.
-// - Please Wait functionality should still work if layer we added is not activated.
-// 3.2 Extra Button Class Layers Added
-// - Button classes layered into 'if else' loops
-// - When 1st ATC is pressed. 'Adding..' takes about 4-6 seconds. We double check gray color for 'Please Wait'.
-// - If not Please Wait then 2nd ATC is triggered
-// 3.3 Button layers are reinforced
-// - Easy edit button classes and better console logs.
-//https://stackoverflow.com/questions/49509874/how-can-i-develop-my-userscript-in-my-favourite-ide-and-avoid-copy-pasting-it-to
-// 3.3.1 Quick GotoCart Button Class Layers fix
-// 3.3.2 Add keyword check at final purchase screen
 
 
 // ==/UserScript==
