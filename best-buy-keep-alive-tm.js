@@ -241,9 +241,9 @@ function verificationpageEventHandler (evt) {
                         ContinueButton[0].click()
                         ContinueButton = null;
                     }
-                }, 2000)
+                }, 1500)
            }
-    }, 2000)
+    }, 2500)
 }
 
 //________________________________________________________________________
@@ -621,6 +621,7 @@ if (pagetitle.includes(ITEM_KEYWORD)) {
                         }
                         else
                         {
+                            // Adding timeout to prevent stalling when In Stock item is first loaded
                             setTimeout(function() {
                             // Wow we will use event handlers to check for clicks. We have create a function on top defining instockEventhandler.
                             // It is said this this method reduces memory leaks
@@ -651,7 +652,7 @@ else if (location.href.includes("www.bestbuy.com/checkout/r/fast-track")) {
     //
     //
     setTimeout(function() {
-        //We will verify the first time in the cart. If the item name has the Keyword, that means the item was sucessfully added to cart.
+        //We will verify that the item in final checkout screen matches the Keyword so we don't have any issues when running multiple scripts for multiple keyword.
         //In that case the Place Order button is clicked.
         //
         var CartItemCheck = document.getElementsByClassName("item-list__spacer text-left item-list__title");
