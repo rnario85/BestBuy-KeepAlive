@@ -65,6 +65,7 @@
 const ITEM_KEYWORD= "AMD"; // NO SPACES IN KEYWORD - ONLY ONE WORD
 const CREDITCARD_CVV = "***"; // BOT will run without changing this value.
 const TESTMODE = "Yes"; // TESTMODE = "No" will buy the card
+const SMS_DIGITS = "****"; // Enter last 4 digits of phone # for SMS verification
 const ITEM_URL= "https://www.bestbuy.com/site/amd-ryzen-5-5600x-4th-gen-6-core-12-threads-unlocked-desktop-processor-with-wraith-stealth-cooler/6438943.p?skuId=6438943"; // URL for keep alive item
 
 //____ PLEASE WAIT FLAGS : ADVANCED OPTIONS _____________________________
@@ -211,6 +212,38 @@ function cartpageoperationsEvenHandler (evt) {
 
             }
     }, 2500)
+}
+
+//________________________________________________________________________
+
+                     //    VERIFICATION PAGE EventHandler
+//________________________________________________________________________
+
+function verificationpageEventHandler (evt) {
+    console.log('Verification Step Reached')
+    setTimeout(function()
+    {
+            if (location.href.indexOf("identity/signin/recoveryOptions") > -1) {
+                //Create Custom Badge
+                //
+                const $badge = createFloatingBadge("Verification Page","Entering SMS Digits");
+                document.body.appendChild($badge);
+                $badge.style.transform = "translate(0, 0)"
+                setTimeout(function()
+                {
+                    var ContinueButton = document.getElementsByClassName("btn btn-secondary btn-lg btn-block c-button-icon c-button-icon-leading cia-form__controls__submit ");
+                    document.getElementById("smsDigits").focus();
+                    document.getElementById("smsDigits").select();
+                    if (!document.execCommand('insertText',false, SMS_DIGITS)) {
+                        document.getElementById("smsDigits").value = SMS_DIGITS;
+                    }
+                    if (ContinueButton.length == 1) {
+                        ContinueButton[0].click()
+                        ContinueButton = null;
+                    }
+                }, 2000)
+           }
+    }, 2000)
 }
 
 //________________________________________________________________________
@@ -484,6 +517,13 @@ if (location.href.includes("https://www.bestbuy.com/site/customer/myaccount")) {
         }, 3000);
 }
 
+// Check for Verification Page
+else if (pagetitle.includes("Recovery")) {
+
+    verificationpageEventHandler();
+
+}
+
 if (pagetitle.includes(ITEM_KEYWORD)) {
 
         //Create Custom Badge
@@ -581,6 +621,7 @@ if (pagetitle.includes(ITEM_KEYWORD)) {
                         }
                         else
                         {
+                            setTimeout(function() {
                             // Wow we will use event handlers to check for clicks. We have create a function on top defining instockEventhandler.
                             // It is said this this method reduces memory leaks
                             console.log('ATC button is yellow ! Pressing it ! ')
@@ -588,7 +629,7 @@ if (pagetitle.includes(ITEM_KEYWORD)) {
                             InStockButton[0].addEventListener ("click", instockEventHandler, false);
                             // When a click event is detected for parsed element, please execute the function from uptop
                             InStockButton[0].click (instockEventHandler);
-
+                            }, 2000)
                        }
 
 
@@ -626,7 +667,6 @@ else if (location.href.includes("www.bestbuy.com/checkout/r/fast-track")) {
             //document.getElementById("blah").src = "http://......"
             // CVV Number of Saved Card
             // Bug fix: by craz3drunner (discord member)
-            //document.getElementById("cvv").value = CREDITCARD_CVV;
             if(document.getElementById("cvv") != null) {
                 document.getElementById("cvv").focus();
                 document.getElementById("cvv").select();
