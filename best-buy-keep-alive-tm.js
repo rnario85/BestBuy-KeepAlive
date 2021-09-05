@@ -127,6 +127,8 @@ function countdown(minutes) {
       // Time calculations for days, hours, minutes and seconds
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
 
       // Output the result in an element with id="demo"
 
