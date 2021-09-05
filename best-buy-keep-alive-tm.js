@@ -477,7 +477,7 @@ function instockEventHandler(evt) {
                                 // When a click event is detected for parsed element, please execute the function from uptop
                                 GotoCartButton[0].click(cartpageoperationsEvenHandler);
                                 GotoCartButton = null;
-                        }, 3000) // If item is not please waited then it will open go to cart again. This only happens for in stock items
+                        }, 4000) // If item is not please waited then it will open go to cart again. This only happens for in stock items
 
                 }
 
