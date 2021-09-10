@@ -509,7 +509,7 @@ if (location.href.includes("https://www.bestbuy.com/site/customer/myaccount")) {
 else if (pagetitle.includes("Recovery")) {
     setTimeout(function() {
         verificationpageEventHandler();
-    }, 1000)
+    }, 3000)
 }
 
 if (pagetitle.includes(ITEM_KEYWORD)) {
