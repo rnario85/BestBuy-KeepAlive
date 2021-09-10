@@ -507,9 +507,9 @@ if (location.href.includes("https://www.bestbuy.com/site/customer/myaccount")) {
 
 // Check for Verification Page
 else if (pagetitle.includes("Recovery")) {
-
-    verificationpageEventHandler();
-
+    setTimeout(function() {
+        verificationpageEventHandler();
+    }, 1000)
 }
 
 if (pagetitle.includes(ITEM_KEYWORD)) {
