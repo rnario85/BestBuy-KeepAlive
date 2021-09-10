@@ -208,7 +208,18 @@ function verificationpageEventHandler (evt) {
                 $badge.style.transform = "translate(0, 0)"
                 setTimeout(function()
                 {
-                    var ContinueButton = document.getElementsByClassName("btn btn-secondary btn-lg btn-block c-button-icon c-button-icon-leading cia-form__controls__submit ");
+                    var ContinueButton;
+                    const ContinueButton_L1 = "btn btn-secondary btn-lg btn-block c-button-icon c-button-icon-leading cia-form__controls__submit ";
+                    const ContinueButton_L2 = "c-button c-button-secondary c-button-lg c-button-block c-button-icon c-button-icon-leading cia-form__controls__submit ";
+
+                    if (document.getElementsByClassName(ContinueButton_L1).length == 1) {
+                        ContinueButton = document.getElementsByClassName(ContinueButton_L1);
+                        console.log('ContinueButton Class ID 1 : ' + ContinueButton_L1)
+                    }
+                    else if (document.getElementsByClassName(ContinueButton_L2).length == 1) {
+                        ContinueButton = document.getElementsByClassName(ContinueButton_L2);
+                        console.log('ContinueButton Class ID 2 :' + ContinueButton_L2)
+                    }
                     document.getElementById("smsDigits").focus();
                     document.getElementById("smsDigits").select();
                     if (!document.execCommand('insertText',false, SMS_DIGITS)) {
