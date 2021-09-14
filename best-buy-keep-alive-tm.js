@@ -181,7 +181,7 @@ function cartpageoperationsEvenHandler (evt) {
                         }
                     }
                     //Close Cart Page if empty
-                    if (document.getElementsByClassName("dot").length == 0){
+                    else {
                         console.log('Cart is empty.')
                         window.close();
                     }
@@ -506,7 +506,7 @@ if (location.href.includes("https://www.bestbuy.com/site/customer/myaccount")) {
 }
 
 // Check for Verification Page
-else if (pagetitle.includes("Recovery")) {
+if (pagetitle.includes("Recovery")) {
     setTimeout(function() {
         verificationpageEventHandler();
     }, 3000)
