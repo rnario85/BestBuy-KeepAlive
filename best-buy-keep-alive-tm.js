@@ -505,6 +505,13 @@ if (location.href.includes("https://www.bestbuy.com/site/customer/myaccount")) {
         }, 3000);
 }
 
+// Refresh page if Sign In page is encountered to recheck for Verification Page
+if (pagetitle.includes("Sign In to Best Buy")) {
+    setTimeout(function(){
+        location.reload();
+    }, 3000)
+}
+
 // Check for Verification Page
 if (pagetitle.includes("Recovery")) {
     setTimeout(function() {
